@@ -1,5 +1,13 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+
+export interface Flight{
+  estDepartureAirport: string,
+  lastSeen: Date,
+  firstSeen: Date,
+}
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +21,9 @@ export class OpenskyApiService {
   ) { }
 
 
-  getFlights() {
-    return this.http.get(this.apiUrl);
+  getFlights(): Observable<Flight> {
+    const headers = new HttpHeaders({'Content-Type':'application/json; charset=utf-8'});
+    return this.http.get<Flight>(this.apiUrl , {headers});
   }
   
 }
