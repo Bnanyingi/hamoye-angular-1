@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-// import { Flight } from '../flight.model';
+import { Flight } from '../flight.model';
 import { OpenskyApiService } from '../opensky-api.service';
 import { Router } from '@angular/router';
 
@@ -33,10 +33,10 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.openSkyApiService.getFlights().subscribe(
-      data => {
+    this.openSkyApiService.getFlights()
+    .subscribe((data) => {
         this.flights = data;
-        console.log(this.flights);
+        // console.log(this.flights);
         this.dataSource = new MatTableDataSource(this.flights);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
