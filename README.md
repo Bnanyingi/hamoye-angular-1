@@ -2,11 +2,11 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.3.
 
-##Login Details
+## Login Details
 email: test@gmail.com
 password: 12345
 
-##deployed Server
+## deployed Server
 using firebase for hosting the application
 here is the link:
 https://hamoye-angular.web.app/
