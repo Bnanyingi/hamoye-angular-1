@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 
 export interface Flight{
@@ -23,7 +24,7 @@ export class OpenskyApiService {
 
   getFlights(): Observable<Flight> {
     const headers = new HttpHeaders({'Content-Type':'application/json; charset=utf-8'});
-    return this.http.get<Flight>(this.apiUrl , {headers});
+    return this.http.get<Flight>(`${environment.firebase.databaseURL}` , {headers});
   }
   
 }
